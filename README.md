@@ -42,7 +42,8 @@ The core bet is mean reversion. If two assets share a stable relationship, a tem
 
 ## Results
 
-JPM/BAC over 2021–2026: the spread mean-reverts reliably, with the z-score swinging between roughly -3.4 and +3.2. (Full backtest with Sharpe/drawdown analysis: *add when i finish the backtest loop*.)
+JPM/BAC over 2021–2026: the spread mean-reverts reliably, with the z-score swinging between roughly -3.4 and +3.2. The Total Return was 96.76, meaning the strategy gained 96.76 points over the period. The Sharpe ratio was 1.2(before transaction costs), and the Max drawdown was -40.22. 
+I assumed that each trade will cost about 10 bps. After transaction costs, I ended with a Sharpe ratio of 1.14. 
 
 
 
