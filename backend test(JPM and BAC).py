@@ -36,6 +36,7 @@ plt.show()
 position = 0
 
 daily_returns = []
+cost_bps = 0.001  # 10 bps per side
 # enter long - betting spread will go up
 # enter short - betting spread will go down
 for i in range(1, len(Z_Score)):
@@ -51,13 +52,21 @@ for i in range(1, len(Z_Score)):
 
     if position == 1 and z <= -0.5:
         position = 0
+        if daily_returns:
+            daily_returns[-1] -= cost_bps * abs(spread_today)
     elif position == -1 and z >= 0.5:
         position = 0
+        if daily_returns:
+            daily_returns[-1] -= cost_bps * abs(spread_today)
 
     elif position == 0 and prev_z < -1.5 and z >= -1.5:
         position = 1  # long: spread stretched low, bet it rises
+        if daily_returns:
+            daily_returns[-1] -= cost_bps * abs(spread_today)
     elif position == 0 and prev_z > 1.5 and z <= 1.5:
         position = -1  # short: spread stretched high, bet it falls
+        if daily_returns:
+            daily_returns[-1] -= cost_bps * abs(spread_today)
 
 returns = pd.Series(daily_returns)
 
@@ -67,6 +76,7 @@ cumulative = returns.cumsum()
 peak = cumulative.cummax()
 drawdown = cumulative - peak
 max_drawdown = drawdown.min()
+
 
 print(f"Total return: {total_return:.4f}")
 print(f"Sharpe ratio: {sharpe:.4f}")
