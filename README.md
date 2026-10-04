@@ -42,7 +42,7 @@ The core bet is mean reversion. If two assets share a stable relationship, a tem
 
 ## Results
 
-JPM/BAC over 2021–2026: the spread mean-reverts reliably, with the z-score swinging between roughly -3.4 and +3.2. (Full backtest with Sharpe/drawdown analysis: *add when you finish the backtest loop*.)
+JPM/BAC over 2021–2026: the spread mean-reverts reliably, with the z-score swinging between roughly -3.4 and +3.2. (Full backtest with Sharpe/drawdown analysis: *add when i finish the backtest loop*.)
 
 
 
