@@ -2,7 +2,7 @@
 
 A strategy built from scratch in Python: find two stocks/tickers that move together, bet that when they drift apart, they snap back.
 
-## The Idea
+## Idea
 
 The core bet is mean reversion. If two assets share a stable relationship, a temporary divergence means they will eventually snap into alignment. 
 
@@ -10,7 +10,7 @@ The core bet is mean reversion. If two assets share a stable relationship, a tem
 
 
 
-## The Approach
+## Steps
 
 1. **Pick a pair** — same sector, same market, same currency.
 2. **Fit a hedge ratio** — regress one stock on the other with OLS to find \(\beta\):
@@ -27,7 +27,7 @@ The core bet is mean reversion. If two assets share a stable relationship, a tem
 
 
 
-## What I Learned From Failures
+## Learning Process 
 
 - **Apple + Samsung** — I first selected these two since they were from the same sector which is technology. However, I ended up getting 0.0010 for \(\beta\), and 108.8647 for \alpha. The 0.0010 means that when Samsung moves by one unit, Apple moves by only about 0.001 units, making their relationship negligible.
 - The 108.8647 alpha means that when Samsung is zero, Apple is worth about 109. 
