@@ -6,7 +6,7 @@ A strategy built from scratch in Python: find two stocks/tickers that move toget
 
 The core bet is mean reversion. If two assets share a stable relationship, a temporary divergence means they will eventually snap into alignment. 
 
-.
+
 
 
 
@@ -14,15 +14,13 @@ The core bet is mean reversion. If two assets share a stable relationship, a tem
 
 1. **Pick a pair** — same sector, same market, same currency.
 2. **Fit a hedge ratio** — regress one stock on the other with OLS to find \(\beta\):
-   \[
-   Y_t = \beta X_t + \alpha + \varepsilon_t
-   \]
-   The leftover \(\varepsilon_t\) is the spread that should mean-revert.
-.
+
+   Y_t = beta * X_t + alpha + Et
+  
+   The leftover Et is the spread that should mean-revert.
+
 . **Standardize** — convert the spread to a rolling z-score to know when it's stretched:
-   \[
-   z_t = \frac{S_t - \mu}{\sigma}
-   \]
+
 4. **Signal** — enter when the z-score crosses ±1.5, exit when it returns to 0.
 
 
@@ -33,8 +31,8 @@ The core bet is mean reversion. If two assets share a stable relationship, a tem
 - The 108.8647 alpha means that when Samsung is zero, Apple is worth about 109. 
 - Found almost no real relationship. I failed because of currency/scale mismatch; the hedge ratio was meaningless.
 - **WMT + TGT** — failed because they're not actually cointegrated; negative hedge ratio meant no mean-reversion.
-- \(\beta\) = -1.2029
-- \alpha = 209.0134
+- beta = -1.2029
+- alpha = 209.0134
 .
 - **JPM + BAC** — worked: the z-score oscillates between -3 and +3 around zero, a mean-reverting signal.
 
