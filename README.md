@@ -1,6 +1,6 @@
 # Pairs Trading Backtest
 
-A strategy built from scratch in Python: find two stocks/tickers that move together, bet that when they drift apart, they snap back.
+Strategy using two tickers betting on mean reversion. 
 
 ## Idea
 
